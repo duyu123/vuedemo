@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message</title>
+    <link rel="stylesheet"  type="text/css" href="../lib/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="/js/lib/bootstrap/css/bootstrap.min.css?v=2ef82er9" type="text/css"/>-->
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="../lib/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="./lib/bootstrap.js"></script>
+    <style type="text/css">
+        .highlight{
+            padding:9px 14px;
+            margin-bottom: 14px;
+            background-color: #fff;
+            border:1px solid #ccc;
+            border-radius:4px;
+            min-height: 200px;
+            height: auto;
+            text-align: left;
+            color: #555;
+        }
+        .highlight:empty:before{
+            content:attr(placeholder);
+            font-size: 14px;
+            color: #ccc;
+        }
+        .highlight:focus{
+            content:none;
+        }
+        .bs-example {
+            position: relative;
+            padding: 45px 15px 15px;
+            margin: 0 -15px 15px;
+            border-color: #e5e5e5 #eee #eee;
+            border-style: solid;
+            border-width: 1px 0;
+            -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+            box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+            width: 600px;
+            margin:0 auto;
+        }
+        .media-left{
+            float: left;
+        }
+        .mediacon{
+            width: 487px;
+            text-align: left;
+            padding-left: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="text-center">
+    <div class="page-header text-center">
+        <h1 v-bind:title="message">留言板</h1>
+        <p class="lead">这是个用来练习的留言板demo</p>
+    </div>
+    <div class="row text-center" style="width: 600px;margin:0 auto;">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputtitle"  class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputtitle" placeholder="请输入标题">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputdescribe" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <figure id="inputdescribe" contenteditable="true" class="highlight" placeholder="想说点什么....."></figure>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="bs-example" data-example-id="media-alignment">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" src="cat1.jpg" width="64" height="64" alt="猫咪老师">
+                </a>
+            </div>
+            <div class="media-body mediacon">
+                <h4 class="media-heading">夏木友人帐--猫咪老师</h4>
+                <p>动漫《夏目友人帐》中拥有高人气的角色，真名为斑，喜欢别人称它为：猫咪老师，真实身份是一个高级妖怪。
+                    因为夏目在躲避妖怪的时候无意中跑入封印着斑的结界并无意中将结界破坏才得以解放。
+                    起初为了得到友人帐以招财猫的形象作为他的保镖与其在一起，可却逐渐成为生活上于夏目相依相伴的朋友，
+                    被夏目看作为珍贵的家人。招财猫的形象是因为之前被封印在一只招财猫的容器中，在夏目遇到危险的时候会变回强大的妖怪而将其保护。</p>
+            </div>
+        </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message:"现在时间为 "+new Date().toLocaleDateString()
+        }
+    });
+</script>
+</body>
+</html>
